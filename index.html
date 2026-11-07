@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Azica 🤍</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#fdf6f8;--ink:#2b2430;--mute:#7a6f80;--rose:#f3a6b8;--rose2:#e8789a;--gold:#e9c46a;--card:#fff;--line:#f3e3e8;--shadow:0 10px 30px rgba(232,120,154,.15);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1820;--bg2:#251e29;--ink:#f6eef2;--mute:#b9aabd;--card:#2a2230;--line:#3c3043;--shadow:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1d1820;--bg2:#251e29;--ink:#f6eef2;--mute:#b9aabd;--card:#2a2230;--line:#3c3043;--shadow:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600}
+@media (pointer:fine){body,button,input,a{cursor:none}}
+.cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:2px solid var(--rose2);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .15s,background .15s;display:none;align-items:center;justify-content:center;font-size:14px}
+.cur.on{transform:scale(1.7);background:rgba(243,166,184,.25)}
+.dot{position:fixed;left:0;top:0;width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--rose2);border-radius:50%;pointer-events:none;z-index:9999;display:none}
+@media (pointer:fine){.cur,.dot{display:flex}}
+.spark{position:fixed;pointer-events:none;z-index:9998;font-size:14px;animation:sp .9s forwards}
+@keyframes sp{to{opacity:0;transform:translateY(-26px) scale(.3) rotate(80deg)}}
+#gate{position:fixed;inset:0;z-index:1000;background:radial-gradient(circle at 30% 20%,var(--bg2),var(--bg));display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .8s,visibility .8s}
+#gate.gone{opacity:0;visibility:hidden}
+.gbox{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:36px 28px;max-width:400px;width:100%;text-align:center;box-shadow:var(--shadow)}
+.gbox .big{font-size:56px;animation:fl 3s ease-in-out infinite}
+.gbox h1{font-size:28px;margin:8px 0}
+.gbox p{color:var(--mute);font-size:15px;margin-bottom:18px}
+.gbox input{width:100%;padding:14px 18px;border-radius:50px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;text-align:center;outline:none;margin-bottom:12px}
+.gbox input:focus{border-color:var(--rose)}
+.btn{background:linear-gradient(135deg,var(--rose),var(--rose2));color:#fff;border:0;border-radius:50px;padding:13px 28px;font:700 16px 'Quicksand',sans-serif;box-shadow:var(--shadow);transition:transform .2s}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
+.shake{animation:sh .45s}
+@keyframes sh{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+#err{color:var(--rose2);font-size:14px;min-height:22px;margin-top:10px}
+@keyframes fl{50%{transform:translateY(-10px)}}
+#site{display:none}
+nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);padding:12px 16px;padding-top:calc(12px + env(safe-area-inset-top,0px));display:flex;gap:6px;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+nav a{color:var(--mute);text-decoration:none;font-weight:700;font-size:14px;padding:6px 14px;border-radius:50px;transition:.2s}
+nav a:hover{background:var(--bg2);color:var(--rose2)}
+section{padding:80px 20px;max-width:1000px;margin:auto}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+.hero .tag{color:var(--rose2);font-weight:700;letter-spacing:3px;font-size:13px;text-transform:uppercase}
+.hero h1{font-size:clamp(46px,11vw,104px);line-height:1.05;margin:12px 0;background:linear-gradient(135deg,var(--ink),var(--rose2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:clamp(17px,3vw,22px);color:var(--mute);max-width:560px;min-height:64px}
+.hero .btn{margin-top:22px}
+.fl{position:absolute;font-size:28px;opacity:.7;animation:fl 5s ease-in-out infinite;pointer-events:none}
+h2{font-size:clamp(30px,6vw,44px);text-align:center;margin-bottom:8px}
+.sub{text-align:center;color:var(--mute);margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);transition:transform .3s}
+.card:hover{transform:translateY(-6px) rotate(-1deg)}
+.card .e{font-size:40px}
+.card h3{font-size:20px;margin:8px 0 4px}
+.card p{color:var(--mute);font-size:15px}
+.snack{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:20px 10px;font:700 16px 'Quicksand',sans-serif;transition:.2s;box-shadow:var(--shadow)}
+.snack span{display:block;font-size:38px}
+.snack:hover{transform:scale(1.07);border-color:var(--rose)}
+.out{margin:26px auto 0;max-width:520px;min-height:78px;background:var(--bg2);border:2px dashed var(--rose);border-radius:20px;padding:18px;text-align:center;font-size:17px}
+.moods{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.moods button{font-size:34px;background:var(--card);border:2px solid var(--line);border-radius:50%;width:68px;height:68px;transition:.2s}
+.moods button:hover{transform:scale(1.2);border-color:var(--rose)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:20px}
+.chip{background:var(--bg2);border:1px solid var(--line);padding:8px 16px;border-radius:50px;font-weight:700;font-size:14px}
+.cert{background:var(--card);border:3px double var(--gold);border-radius:20px;padding:40px 24px;text-align:center;box-shadow:var(--shadow);max-width:640px;margin:auto}
+.cert h3{font-size:30px;color:var(--rose2)}
+.cert .nm{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:44px;margin:8px 0}
+.cert p{color:var(--mute);font-size:15px}
+.letter{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:34px 28px;max-width:660px;margin:auto;box-shadow:var(--shadow);font-size:17px}
+.letter p{margin-bottom:14px}
+.sig{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:24px;color:var(--rose2)}
+footer{text-align:center;color:var(--mute);padding:40px 20px 60px;font-size:14px}
+.reveal{opacity:0;transform:translateY(30px);transition:1s}
+.reveal.in{opacity:1;transform:none}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:2000}
+</style>
+</head>
+<body>
+<div class="cur" id="cur">🤍</div><div class="dot" id="dot"></div>
+<canvas id="cv"></canvas>
+
+<div id="gate">
+  <div class="gbox" id="gbox">
+    <div class="big">🔒</div>
+    <h1>Hey Azica…</h1>
+    <p>This little world is only for you. Enter the secret word to unlock it.<br><small>Hint: what you are to Zane 😉</small></p>
+    <input id="pw" type="password" placeholder="Secret password" autocomplete="off">
+    <button class="btn" id="go">Unlock 🤍</button>
+    <div id="err"></div>
+  </div>
+</div>
+
+<div id="site">
+<nav><a href="#top">Home</a><a href="#about">You</a><a href="#snacks">Snacks</a><a href="#mood">Mood</a><a href="#nature">Nature</a><a href="#cert">Certificate</a><a href="#note">Note</a></nav>
+
+<section class="hero" id="top">
+  <span class="fl" style="left:8%;top:18%">🤍</span><span class="fl" style="right:10%;top:22%;animation-delay:1s">✨</span><span class="fl" style="left:14%;bottom:18%;animation-delay:2s">🍩</span><span class="fl" style="right:14%;bottom:16%;animation-delay:.5s">🌿</span>
+  <div class="tag">A friendship celebration</div>
+  <h1>Azica</h1>
+  <p id="tw"></p>
+  <button class="btn" id="conf">Celebrate us 🎉</button>
+</section>
+
+<section id="about"><h2 class="reveal">Meet the one and only</h2><p class="sub reveal">Facts, verified by Zane. No arguments accepted.</p>
+<div class="grid">
+  <div class="card reveal"><div class="e">✨</div><h3>Ultra cute</h3><p>5’3” of pure charm. Perfectly sized for big energy.</p></div>
+  <div class="card reveal"><div class="e">👀</div><h3>Bright eyes</h3><p>Full of hope, and honestly a little bit of mischief.</p></div>
+  <div class="card reveal"><div class="e">🧠</div><h3>Seriously smart</h3><p>Pretty and sharp. A dangerous combo, used wisely.</p></div>
+  <div class="card reveal"><div class="e">😏</div><h3>Certified sarcastic</h3><p>Moody, self-centered, iconic. We love the drama.</p></div>
+</div></section>
+
+<section id="snacks"><h2 class="reveal">The Foodie Menu</h2><p class="sub reveal">Tap a snack. Azica’s orders only.</p>
+<div class="grid" id="sg"></div><div class="out" id="so">Pick a snack to see what it says about you 👇</div></section>
+
+<section id="mood"><h2 class="reveal">Mood Meter</h2><p class="sub reveal">How is Azica feeling right now?</p>
+<div class="moods" id="md"></div><div class="out" id="mo">Choose a mood. Zane will respond accordingly.</div></section>
+
+<section id="nature"><h2 class="reveal">Nature Adventure Generator</h2><p class="sub reveal">Because exploring is her thing.</p>
+<div class="chips"><span class="chip">🌄 Sunrises</span><span class="chip">🌲 Forest trails</span><span class="chip">🏞️ Lakes</span><span class="chip">⛰️ Mountains</span></div>
+<div style="text-align:center"><button class="btn" id="ad">Plan our next adventure 🌿</button></div><div class="out" id="ao">Press the button for a totally legitimate plan.</div></section>
+
+<section id="comp"><h2 class="reveal">Compliment Machine</h2><p class="sub reveal">Warning: all compliments are 100% true.</p>
+<div style="text-align:center"><button class="btn" id="cb">Tell me I’m great 💖</button></div><div class="out" id="co">Click me, Azica.</div></section>
+
+<section id="cert"><div class="cert reveal"><div style="font-size:42px">🏅</div><h3>Official Bestie Certificate</h3><p>This certifies that</p><div class="nm">Azica</div><p>is hereby declared a <b>Best Friend</b> of Zane, after becoming one in record time. Valid forever. Non-refundable. Snacks mandatory.</p><p style="margin-top:14px">🤍 Signed, Zane 🤍</p></div></section>
+
+<section id="note"><h2 class="reveal">A little note</h2><p class="sub reveal">From Zane, with zero sarcasm (okay, a little).</p>
+<div class="letter reveal"><p>Dear Azica,</p><p>We met not long ago, and somehow you already feel like my bestie. That is rare, so I’m not taking it lightly.</p><p>You’re smart, you’re pretty, and your eyes hold so much hope that it’s contagious. Your moods keep life interesting, your sarcasm keeps me sharp, and your snack taste is, frankly, elite.</p><p>Thank you for being you. I hope for many more trips, many more crunchy snacks, and many more laughs together.</p><p class="sig">Your friend, Zane 🤍</p></div></section>
+
+<footer>Made with 🤍 for Azica · Best friends, fast forward <br><br><button class="btn" id="th" style="font-size:13px;padding:8px 18px">Toggle dark mode 🌙</button></footer>
+</div>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var cur=$('cur'),dot=$('dot'),last=0;
+document.addEventListener('mousemove',function(e){
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';
+  var n=Date.now();if(n-last>70){last=n;var s=document.createElement('span');s.className='spark';s.textContent=['✨','🤍','🌸'][Math.floor(Math.random()*3)];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);setTimeout(function(){s.remove()},900)}
+});
+document.addEventListener('mouseover',function(e){cur.classList.toggle('on',!!e.target.closest('button,a,input'))});
+
+// confetti
+var cv=$('cv'),cx=cv.getContext('2d'),ps=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+function burst(){for(var i=0;i<140;i++)ps.push({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*18,vy:Math.random()*-16-3,r:Math.random()*6+3,c:['#f3a6b8','#e8789a','#e9c46a','#fff','#c9a0dc'][i%5],l:140});if(ps.length===140)loop()}
+function loop(){cx.clearRect(0,0,cv.width,cv.height);ps=ps.filter(function(p){return p.l>0});ps.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.l--;cx.globalAlpha=Math.min(1,p.l/40);cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()});if(ps.length)requestAnimationFrame(loop);else cx.clearRect(0,0,cv.width,cv.height)}
+
+// gate
+var PASS='bestie';
+function unlock(){
+  if($('pw').value.trim().toLowerCase()===PASS){$('gate').classList.add('gone');$('site').style.display='block';scrollTo(0,0);burst();typer();observe()}
+  else{var b=$('gbox');b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');$('err').textContent='Nope! Try again, drama queen 😏'}
+}
+$('go').onclick=unlock;$('pw').addEventListener('keydown',function(e){if(e.key==='Enter')unlock()});
+
+// typewriter
+function typer(){var t='Some friendships take years. Ours took about five minutes, and now you’re stuck with me. 🤍',i=0,el=$('tw');(function k(){el.textContent=t.slice(0,i++);if(i<=t.length)setTimeout(k,38)})()}
+$('conf').onclick=burst;
+
+// reveal
+function observe(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.15});document.querySelectorAll('.reveal').forEach(function(r){io.observe(r)})}
+
+// snacks
+var snacks=[['🍗','KFC','Zinger first, feelings later.'],['🥜','Roasted Peanuts','Crunch, crack, repeat. Do not disturb.'],['🥔','Lays','Nobody can eat just one. Also, not sharing.'],['🌽','Kurkure','Masala fingers prove it was a good time.'],['🌶️','Slanty','Tangy chaos in a packet. Just like her.'],['🍩','Smile Donuts','Sprinkles fix everything. Scientifically unproven, emotionally true.']];
+snacks.forEach(function(s){var b=document.createElement('button');b.className='snack';b.innerHTML='<span>'+s[0]+'</span>'+s[1];b.onclick=function(){$('so').textContent=s[0]+' '+s[1]+': '+s[2]};$('sg').appendChild(b)});
+
+// moods
+var moods=[['☀️','Sunshine mode! Someone call the news, Azica is smiling.'],['🌧️','Totally valid. Snacks are on the way, and nobody has to talk.'],['😏','Oh, I’m shocked. Truly. Stunned. Please continue.'],['🍟','Hungry? Say no more. Next KFC run is happening.'],['👑','Main character energy detected. As expected.']];
+moods.forEach(function(m){var b=document.createElement('button');b.textContent=m[0];b.onclick=function(){$('mo').textContent=m[1]};$('md').appendChild(b)});
+
+// adventure
+var A=['Sunrise hike, with roasted peanuts in the backpack and zero talking until the view.','A lakeside picnic. KFC is mandatory, sarcasm is allowed.','Forest trail walk with Lays and unlimited photos of Azica looking cute.','Mountain trip. Slanty for the climb, smile donuts for the summit.','Chasing a waterfall. Kurkure fuel, dramatic moods optional.'];
+$('ad').onclick=function(){$('ao').textContent='🌿 '+A[Math.floor(Math.random()*A.length)]};
+
+// compliments
+var C=['Your eyes could restart anyone’s hope.','You’re smart enough to win arguments and cute enough to be forgiven.','Your sarcasm is an art form.','You make a new friend feel like an old one in days.','Even your moods have style.','You’re the reason snacks taste better.'];
+$('cb').onclick=function(){$('co').textContent='💖 '+C[Math.floor(Math.random()*C.length)]};
+
+// theme
+$('th').onclick=function(){var r=document.documentElement,d=r.getAttribute('data-theme')==='dark';r.setAttribute('data-theme',d?'light':'dark')};
+})();
+</script>
+</body>
+</html>
